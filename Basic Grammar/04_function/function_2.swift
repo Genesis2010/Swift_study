@@ -53,3 +53,42 @@ func hello(person: String, myname: String...) -> String{
 }
 
 print(hello(person: "friend", myname: "Park Jun Hyuk", "PJH")) // hello friend, my name is ["Park Jun Hyuk" , "PJH"]
+
+print(hello(person: "friend")) // hello. friend, my name is []   -> 값이 없는 경우 생략이 가능하다
+
+// 매개 변수 기본값, 전달인자 레이블, 가변 매개 함수 등 모든 함수 표현은 함께 사용이 가능
+
+/*
+    데이터 타입으로서의 함수
+    
+    Swift는 함수형 프로그래밍 패더라임을 포함하는 다중 패더라임 언어
+    Swift의 함수는 일급객체 이므로 변수, 상수 등에 저장이 가능하고 매개변수를 통해 전달이 가능
+ */
+
+/*
+    함수의 표현 -> 반환타입을 생략할 수 없음
+    
+    (매개변수1타입, 매개변수2타입) -> 반환타입
+    
+ */
+
+var helloFunction: (String, String) -> Void = name(to: from:)
+helloFunction("friend", "Park Jun Hyuk") // hello friend, my name is Park Jun Hyuk
+
+helloFunction = name(person: myname:)
+helloFunction("friend", "Park Jun Hyuk") // hello friend, my name is Park Jun Hyuk
+
+/*
+    타입이 다른 함수는 할당할 수가 없음 -> 아래 경우 가변 매개함수이기 때문에 불가능
+    helloFunction = hello(person: myname:)
+ */
+
+func another(function: (String, String) -> Void) { // 함수를 매개변수 타입으로 설정
+    function("friend", "Park Jun Hyuk")
+}
+
+
+another(function: name(person: myname:)) // hello friend, my name is Park Jun Hyuk
+
+
+another(function: helloFunction) // hello friend, my name is Park Jun Hyuk
