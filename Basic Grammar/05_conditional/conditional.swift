@@ -66,3 +66,26 @@
  default:
      print("unknown")
  } // PJH~
+ 
+ /*
+    break -> 명시를 안해도 break가 실행, 생략 가능
+  
+    case "PJY":
+    case "PSH":
+        print("PSH")
+    
+        ->  두개가 같이 실행되는 케이스는 위와 같이하면 오류 발생
+    
+    case "PJY", "PSH":
+        print("PSH")
+  
+        -> 위와 같이 표기하면 가능
+  
+    case "PJY":
+        print("PJY")
+        fallthrough
+    case "PSH":
+        print("PSH")
+    
+        -> fallthrough를 통해 break가 없는 것처럼 PJY에서 PSH까지 실행 된다
+  */
