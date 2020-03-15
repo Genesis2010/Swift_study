@@ -1,4 +1,4 @@
-/* 반복문 */
+// 반복문(for -in, while, repeat)
 
 import Swift
 
@@ -17,22 +17,34 @@ let people = ["PJH": 24, "PSH": 22, "PJY": 54]
  */
 
 for integer in integers {
-    print(integer)
+    print(integer) // 123 (줄바꿈 생략)
 }
 
 for (name , age) in people {
-    print("\(name): \(age)")
+    print("\(name): \(age)") // PJH: 24 PSH: 22 PJY: 54 (줄바꿈 생략)
 }
 
 /*
     while 구문
     
-    while condition { // 조건에는 항상 bool 타입이 들어가야한다
+    while 조건 { // 조건에는 항상 bool 타입이 들어가야한다
         실행 구문
     }
  */
 
 while integers.count > 1 {
-    integers.removeLast()
+    integers.removeLast() // 맨 뒤의 요소부터 삭제
     print(integers) // [1 ,2] -> [1]
 }
+
+/*
+    repeat 구문
+    
+    repeat {
+        실행 구문
+    } while 조건
+ */
+
+repeat {
+    integers.removeLast()
+} while integers.count > 1
